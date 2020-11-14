@@ -165,7 +165,7 @@ public abstract class Animal implements Comparable <Animal> {
 	 */
 	public void setWeight(Double weight) throws AnimalException {
 		if ( weight < 0.1 ) {
-			throw new AnimalException (AnimalException.MSG_ERR_WEIGHT);
+			throw new AnimalException (AnimalException.MSG_ERR_WEIGTH);
 		}
 		this.weight = weight;
 	}

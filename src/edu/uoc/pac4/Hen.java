@@ -12,7 +12,7 @@ public class Hen extends Omnivore {
 	 * @param gender
 	 * @throws AnimalException
 	 */
-	public Hen(String name, int yearBirth, Double weight) throws AnimalException {
+	public Hen(String name, int yearBirth, double weight) throws AnimalException {
 		super(name, yearBirth, weight, Gender.FEMALE);
 	}
 

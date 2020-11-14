@@ -15,7 +15,7 @@ public class Cow extends Herbivore implements Milkable {
 	 * @param gender
 	 * @throws AnimalException
 	 */
-	public Cow(String name, int yearBirth, Double weight) throws AnimalException {
+	public Cow(String name, int yearBirth, double weight) throws AnimalException {
 		super(name, yearBirth, weight, Gender.FEMALE);
 	}
 	
@@ -27,7 +27,7 @@ public class Cow extends Herbivore implements Milkable {
 	 * @param gender
 	 * @throws AnimalException
 	 */
-	public Cow(String name, int yearBirth, Double weight, int maxMilkPerDay ) throws AnimalException {
+	public Cow(String name, int yearBirth, double weight, int maxMilkPerDay ) throws AnimalException {
 		super(name, yearBirth, weight, Gender.FEMALE);
 		setMaxMilkPerDay(maxMilkPerDay);
 	}

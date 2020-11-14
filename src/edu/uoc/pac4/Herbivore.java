@@ -19,7 +19,7 @@ public abstract class Herbivore extends Animal {
 	 * @param gender
 	 * @throws AnimalException
 	 */
-	public Herbivore(String name, int yearBirth, Double weight, Gender gender) throws AnimalException {
+	public Herbivore(String name, int yearBirth, double weight, Gender gender) throws AnimalException {
 		super(name, yearBirth, weight, gender);
 		// TODO Auto-generated constructor stub
 	}

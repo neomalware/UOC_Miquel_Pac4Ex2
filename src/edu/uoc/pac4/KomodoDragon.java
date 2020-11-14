@@ -20,7 +20,7 @@ public class KomodoDragon extends Carnivore implements EggLayer {
 	 * @param gender
 	 * @throws AnimalException
 	 */
-	public KomodoDragon(String name, int yearBirth, Double weight, Gender gender) throws AnimalException {
+	public KomodoDragon(String name, int yearBirth, double weight, Gender gender) throws AnimalException {
 		super(name, yearBirth, weight, gender);
 	}
 
@@ -53,7 +53,7 @@ public class KomodoDragon extends Carnivore implements EggLayer {
 	 * Implemento el mètode abstracte lay() de la interfície EggLayer
 	 */
 	public boolean lay() {
-		Double random = Math.random();
+		double random = Math.random();
 		if ( random > 0.8 ) {
 			return true;
 		} else {

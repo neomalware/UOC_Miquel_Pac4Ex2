@@ -9,7 +9,7 @@ public class Elephant extends Herbivore {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Elephant(String name, int yearBirth, Double weight, Gender gender) throws AnimalException {
+	public Elephant(String name, int yearBirth, double weight, Gender gender) throws AnimalException {
 		super(name, yearBirth, weight, gender);
 		// TODO Auto-generated constructor stub
 	}

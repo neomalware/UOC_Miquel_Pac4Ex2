@@ -20,9 +20,8 @@ public abstract class Omnivore extends Animal {
 	 * @param gender
 	 * @throws AnimalException
 	 */
-	public Omnivore(String name, int yearBirth, Double weight, Gender gender) throws AnimalException {
+	public Omnivore(String name, int yearBirth, double weight, Gender gender) throws AnimalException {
 		super(name, yearBirth, weight, gender);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**

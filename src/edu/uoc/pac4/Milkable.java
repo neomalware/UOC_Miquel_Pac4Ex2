@@ -36,11 +36,11 @@ public interface Milkable {
 		setDaysInMilk(1);
 		
 		if ( getDaysInMilk() <= getPeakMilk() ) {
-			Double range = (1 - 0.75);     
+			double range = (1 - 0.75);     
 			int milkQTY = (int)(((Math.random() * range) + 0.75 ) * getMaxMilkPerDay());
 			return milkQTY;
 		} else {
-			Double range = (1 - 0.5);     
+			double range = (1 - 0.5);     
 			int milkQTY = (int)(((Math.random() * range) + 0.5 ) * getMaxMilkPerDay());
 			return milkQTY;
 		}
