@@ -2,7 +2,7 @@ package edu.uoc.pac4;
 
 import java.time.LocalDateTime;
 
-public class KomodoDragon extends Carnivore {
+public class KomodoDragon extends Carnivore implements EggLayer {
 
 	/**
 	 * Constructor per defecte de KomodoDragon
@@ -10,7 +10,6 @@ public class KomodoDragon extends Carnivore {
 	 */
 	public KomodoDragon() throws AnimalException {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
@@ -23,17 +22,14 @@ public class KomodoDragon extends Carnivore {
 	 */
 	public KomodoDragon(String name, int yearBirth, Double weight, Gender gender) throws AnimalException {
 		super(name, yearBirth, weight, gender);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * Override del mètode makeNoise()
+	 * Implementa el mètode abstracte d'Animal makeNoise()
 	 */
 	@Override
-	public String makeNoise() {
-		String crit;
-		crit = String.format("Grrrrr!!!");
-		return crit;
+	public void makeNoise() {
+		System.out.print("Grrrrr!!!");
 	}
 
 	/**
@@ -51,6 +47,18 @@ public class KomodoDragon extends Carnivore {
 	 */
 	private int calcYearsAge() {
 		return LocalDateTime.now().getYear() - this.getYearBirth();
+	}
+
+	/**
+	 * Implemento el mètode abstracte lay() de la interfície EggLayer
+	 */
+	public boolean lay() {
+		Double random = Math.random();
+		if ( random > 0.8 ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

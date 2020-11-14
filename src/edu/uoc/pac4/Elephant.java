@@ -15,13 +15,11 @@ public class Elephant extends Herbivore {
 	}
 
 	/**
-	 * Override del mètode makeNoise()
+	 * Implementa el mètode abstracte d'Animal makeNoise()
 	 */
 	@Override
-	public String makeNoise() {
-		String crit;
-		crit = String.format("Brrrrr!!!");
-		return crit;
+	public void makeNoise() {
+		System.out.print("Brrrrr!!!");
 	}
 	
 	/**
@@ -40,6 +38,4 @@ public class Elephant extends Herbivore {
 	private int calcYearsAge() {
 		return LocalDateTime.now().getYear() - this.getYearBirth();
 	}
-	
-
 }

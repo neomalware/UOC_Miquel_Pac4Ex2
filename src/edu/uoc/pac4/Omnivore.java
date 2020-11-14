@@ -1,11 +1,7 @@
 package edu.uoc.pac4;
 
 public abstract class Omnivore extends Animal {
-	private String name;
-	private int yearBirth;
-	private double weight;
-	private Gender gender;
-	
+
 	
 	/**
 	 * Constructor per defecte d'Omnivore
@@ -30,12 +26,13 @@ public abstract class Omnivore extends Animal {
 	}
 	
 	/**
-	 * Sobrecàrrega del mètode eat per a la classe abstracte Omnivore.
+	 * Implemento el mètode abstracte Eat
 	 */
-	@Override
-	public void eat(Food food) {
-		// TODO Auto-generated method stub
-		
+	public void eat(Food food) throws AnimalException {
+		if ( food.getType() == FoodType.PLANT ) {
+			super.addEnergy(0.05*food.getKcal());
+		} else if ( food.getType() == FoodType.MEAT ) {
+			super.addEnergy(0.15*food.getKcal());
+		}
 	}
-
 }

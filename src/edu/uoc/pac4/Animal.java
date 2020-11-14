@@ -47,7 +47,7 @@ public abstract class Animal implements Comparable <Animal> {
 	 * Mètode abstracte eat(food)
 	 * @param food
 	 */
-	public abstract void eat(Food food);
+	public abstract void eat(Food food) throws AnimalException;
 	
 	/**
 	 * Getter de la variable energy
@@ -66,13 +66,13 @@ public abstract class Animal implements Comparable <Animal> {
 	public void addEnergy(Double energy) throws AnimalException {
 		if ( energy >= 0.0 && energy <= 100.0 ) {
 			this.energy += energy;			
-		} else {
+		} else if ( energy < 0 ) {
 			throw new AnimalException(AnimalException.MSG_ERR_ENERGY);
 		}
-
-		if ( energy > 100.0 ) {
-			this.energy = 100.0;
-		} 
+		
+		if ( energy > 100 ) {
+			this.energy = 100.0;	
+		}
 	}
 
 	/**
@@ -234,7 +234,6 @@ public abstract class Animal implements Comparable <Animal> {
 		if (aux == 0) {
 			aux = Double.compare(this.weight, auxAnimal.weight);
 		}
-
 		return aux;
 	}
 

@@ -2,20 +2,20 @@ package edu.uoc.pac4;
 
 public interface Milkable {
 	public static final int MAX_DIM = 300;
-	public String MSG_ERR_NO_MILK = "[ERROR] This animal is not pregnant, so it cannot give milk.";
-	public String MSG_ERR_DAYS_IN_MILK_NEGATIVE = "[ERROR] Days in milk cannot be a negative value!!";
-	public String MSG_ERR_DAYS_IN_MILK_GREATER = "[ERROR] Days in milk cannot be greater than"+MAX_DIM+"!!";
-	public String MSG_ERR_MAX_LITERS_PER_DAYS_NEGATIVE = "[ERROR] Max. liters of milk per day cannot be a negative value!!";
+	public static final String MSG_ERR_NO_MILK = "[ERROR] This animal is not pregnant, so it cannot give milk.";
+	public static final String MSG_ERR_DAYS_IN_MILK_NEGATIVE = "[ERROR] Days in milk cannot be a negative value!!";
+	public static final String MSG_ERR_DAYS_IN_MILK_GREATER = "[ERROR] Days in milk cannot be greater than"+MAX_DIM+"!!";
+	public static final String MSG_ERR_MAX_LITERS_PER_DAYS_NEGATIVE = "[ERROR] Max. liters of milk per day cannot be a negative value!!";
 		
 	public int getDaysInMilk();
 	
-	public int setDaysInMilk();
+	public void setDaysInMilk(int dim);
 	
 	public int getPeakMilk();
 	
 	public int getMaxMilkPerDay();
 	
-	public int setMaxMilkPerDay();
+	public void setMaxMilkPerDay(int maxMilkPerDay);
 	
 	/**
 	 * Mètode milk. Retorna la quantitat de llet munyida i incrementa una unitat el nombre de dies que ha 
@@ -28,17 +28,21 @@ public interface Milkable {
 	 * @param PEAK_MILK 
 	 * @return
 	 */
-	public default int milk(int dim, int PEAK_MILK) throws Exception {
-		
-		if ( dim >= MAX_DIM ) {
+	public default int milk() throws Exception {
+		if ( getDaysInMilk() >= MAX_DIM ) {
 			throw new Exception(MSG_ERR_NO_MILK);
+		}
+		// Incrementem una unitat el nombre de dies
+		setDaysInMilk(1);
+		
+		if ( getDaysInMilk() <= getPeakMilk() ) {
+			Double range = (1 - 0.75);     
+			int milkQTY = (int)(((Math.random() * range) + 0.75 ) * getMaxMilkPerDay());
+			return milkQTY;
 		} else {
-			int resultat = 0;
-			if (dim <= PEAK_MILK)
-			
-			
-			dim++;
-			return resultat;
+			Double range = (1 - 0.5);     
+			int milkQTY = (int)(((Math.random() * range) + 0.5 ) * getMaxMilkPerDay());
+			return milkQTY;
 		}
 	}
 	
@@ -47,8 +51,8 @@ public interface Milkable {
 	 * @param dim 
 	 * @return
 	 */
-	public default int getDaysLeftInMilk(int dim) {
-		int DaysLeftInMilk = MAX_DIM - dim;
+	public default int getDaysLeftInMilk() {
+		int DaysLeftInMilk = MAX_DIM - getDaysInMilk();
 		return DaysLeftInMilk;
 	}
 

@@ -2,25 +2,41 @@ package edu.uoc.pac4;
 
 import java.time.LocalDateTime;
 
-public class Goat extends Herbivore {
+public class Goat extends Herbivore implements Milkable  {
+	public static final int PEAK_MILK = 80; 
 	int dim = 0;
 	private int maxMilkPerDay = 6;
-	public static final int PEAK_MILK = 80; 
 	
 	/**
-	 * Constructor per defecte d'Animal
+	 * Constructor paramètric 1 de Goat
+	 * @param name
+	 * @param yearBirth
+	 * @param weight
+	 * @param gender
 	 * @throws AnimalException
 	 */
-	public Goat() throws AnimalException {
-		super();
-		// TODO Auto-generated constructor stub
+	public Goat(String name, int yearBirth, Double weight) throws AnimalException {
+		super(name, yearBirth, weight, Gender.FEMALE);
+	}
+	
+	/**
+	 * Constructor paramètric 2 de Goat
+	 * @param name
+	 * @param yearBirth
+	 * @param weight
+	 * @param gender
+	 * @throws AnimalException
+	 */
+	public Goat(String name, int yearBirth, Double weight, int maxMilkPerDay ) throws AnimalException {
+		super(name, yearBirth, weight, Gender.FEMALE);
+		setMaxMilkPerDay(maxMilkPerDay);
 	}
 
 	/**
 	 * Getter de Dim (days in milk)
 	 * @return
 	 */
-	public int getDim() {
+	public int getDaysInMilk() {
 		return dim;
 	}
 
@@ -28,7 +44,7 @@ public class Goat extends Herbivore {
 	 * Setter de Dim (Days in milk)
 	 * @param dim
 	 */
-	public void setDim(int dim) {
+	public void setDaysInMilk(int dim) {
 		this.dim = dim;
 	}
 
@@ -36,23 +52,10 @@ public class Goat extends Herbivore {
 	 * Getter de PeakMilk
 	 * @return
 	 */
-	public static int getPeakMilk() {
+	public int getPeakMilk() {
 		return PEAK_MILK;
 	}
 
-	/**
-	 * Constructor paramètric de Goat
-	 * @param name
-	 * @param yearBirth
-	 * @param weight
-	 * @param gender
-	 * @throws AnimalException
-	 */
-	public Goat(String name, int yearBirth, Double weight, Gender gender) throws AnimalException {
-		super(name, yearBirth, weight, gender);
-		// TODO Auto-generated constructor stub
-	}
-	
 	/**
 	 * Getter de la variable maxMilkPerDay
 	 * @return
@@ -70,13 +73,11 @@ public class Goat extends Herbivore {
 	}
 	
 	/**
-	 * Override del mètode makeNoise()
+	 * Implementa el mètode abstracte d'Animal makeNoise()
 	 */
 	@Override
-	public String makeNoise() {
-		String crit;
-		crit = String.format("Beeeeee!!!");
-		return crit;
+	public void makeNoise() {
+		System.out.print("Beeeeee!!!");
 	}
 
 	/**
@@ -84,7 +85,7 @@ public class Goat extends Herbivore {
 	 */
 	@Override
 	public void setGender(Gender gender) {
-		this.gender = Gender.FEMALE;
+		super.setGender(Gender.FEMALE);
 	}
 	
 	/**

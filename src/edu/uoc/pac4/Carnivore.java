@@ -1,10 +1,6 @@
 package edu.uoc.pac4;
 
 public abstract class Carnivore extends Animal {
-	private String name;
-	private int yearBirth;
-	private double weight;
-	private Gender gender;
 	
 	/**
 	 * Constructor per defecte de Carnivore
@@ -29,16 +25,13 @@ public abstract class Carnivore extends Animal {
 	}
 
 	/**
-	 * Sobrecàrrega del mètode eat.
+	 * Implemento el mètode abstracte Eat
 	 */
-	@Override
 	public void eat(Food food) throws AnimalException {
-		if ( getType(food) == "MEAT" ) {
-			addEnergy(0.2*super.getKcal(food));
+		if ( food.getType() == FoodType.MEAT ) {
+			super.addEnergy(0.2*food.getKcal());
 		} else {
 			throw new AnimalException(AnimalException.MSG_ERR_CARNIVORE_FOOD);
-		}
-		
+		}		
 	}
-	
 }

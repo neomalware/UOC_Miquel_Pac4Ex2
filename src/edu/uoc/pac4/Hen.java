@@ -3,16 +3,6 @@ package edu.uoc.pac4;
 import java.time.LocalDateTime;
 
 public class Hen extends Omnivore {
-	private Gender gender;
-
-	/**
-	 * Constructor per defecte de Hen
-	 * @throws AnimalException
-	 */
-	public Hen() throws AnimalException {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	
 	/**
 	 * Constructor paramètric de Hen
@@ -22,19 +12,16 @@ public class Hen extends Omnivore {
 	 * @param gender
 	 * @throws AnimalException
 	 */
-	public Hen(String name, int yearBirth, Double weight, Gender gender) throws AnimalException {
-		super(name, yearBirth, weight, gender);
-		// TODO Auto-generated constructor stub
+	public Hen(String name, int yearBirth, Double weight) throws AnimalException {
+		super(name, yearBirth, weight, Gender.FEMALE);
 	}
 
 	/**
-	 * Override del mètode makeNoise()
+	 * Implementa el mètode abstracte d'Animal makeNoise()
 	 */
 	@Override
-	public String makeNoise() {
-		String crit;
-		crit = String.format("Co-co-co!!!");
-		return crit;
+	public void makeNoise() {
+		System.out.print("Co-co-co!!!");
 	}
 
 	/**
@@ -59,7 +46,7 @@ public class Hen extends Omnivore {
 	 */
 	@Override
 	public void setGender(Gender gender) {
-		this.gender = Gender.FEMALE;
+		super.setGender(Gender.FEMALE);
 	}
 
 }
