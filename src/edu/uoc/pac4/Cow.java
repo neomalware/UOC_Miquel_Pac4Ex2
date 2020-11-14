@@ -53,7 +53,13 @@ public class Cow extends Herbivore implements Milkable {
 	 * @param dim
 	 */
 	public void setDaysInMilk(int dim) {
-		this.dim = dim;
+		if (dim < 0 ) {
+			throw new IllegalArgumentException(MSG_ERR_DAYS_IN_MILK_NEGATIVE);
+		} else if (dim > MAX_DIM ) {
+			throw new IllegalArgumentException(MSG_ERR_DAYS_IN_MILK_GREATER);
+		} else {
+			this.dim = dim;
+		}
 	}
 	
 	/**
@@ -76,7 +82,11 @@ public class Cow extends Herbivore implements Milkable {
 	 * @param maxMilkPerDay
 	 */
 	public void setMaxMilkPerDay(int maxMilkPerDay) {
-		this.maxMilkPerDay = maxMilkPerDay;
+		if ( maxMilkPerDay < 0 ) {
+			throw new IllegalArgumentException(MSG_ERR_MAX_LITERS_PER_DAYS_NEGATIVE);
+		} else {
+			this.maxMilkPerDay = maxMilkPerDay;
+		}
 	}
 
 	/**

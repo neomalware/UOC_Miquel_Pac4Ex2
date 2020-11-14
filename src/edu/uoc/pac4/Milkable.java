@@ -28,23 +28,56 @@ public interface Milkable {
 	 * @param PEAK_MILK 
 	 * @return
 	 */
+	/*
 	public default int milk() throws AnimalException {
 		if ( getDaysInMilk() >= MAX_DIM ) {
 			throw new AnimalException(MSG_ERR_NO_MILK);
 		}
 		// Incrementem una unitat el nombre de dies
-		setDaysInMilk(1);
+		setDaysInMilk( getDaysInMilk()+1 );
 		
+		// Aplico les restriccions de l'enunciat
+
 		if ( getDaysInMilk() <= getPeakMilk() ) {
-			double range = (1 - 0.75);     
+			double range = (1 - 0.75) * getMaxMilkPerDay();     
 			int milkQTY = (int)(((Math.random() * range) + 0.75 ) * getMaxMilkPerDay());
 			return milkQTY;
 		} else {
-			double range = (1 - 0.5);     
+			double range = (1 - 0.5) * getMaxMilkPerDay();     
 			int milkQTY = (int)(((Math.random() * range) + 0.5 ) * getMaxMilkPerDay());
-			return milkQTY;
+						
+		return milkQTY;
 		}
 	}
+	*/
+	
+	
+	public default int milk() throws AnimalException {
+		if ( getDaysInMilk() >= MAX_DIM ) {
+			throw new AnimalException(MSG_ERR_NO_MILK);
+		}
+		// Incrementem una unitat el nombre de dies
+		setDaysInMilk( getDaysInMilk()+1 );
+		
+		// Aplico les restriccions de l'enunciat
+		
+		int milkQTY;
+		double MinPeak, random, ratio;
+		
+		if ( getDaysInMilk() <= getPeakMilk() ) {
+			ratio = 0.75;
+		} else {
+			ratio = 0.5;
+		}
+		
+		MinPeak = getMaxMilkPerDay() * ratio;
+		random = Math.random() * (getMaxMilkPerDay() - MinPeak);
+		milkQTY = (int) (MinPeak + random);
+		
+		return milkQTY;
+	}
+	
+	
 	
 	/**
 	 * Getter de DaysLeftinMilk
