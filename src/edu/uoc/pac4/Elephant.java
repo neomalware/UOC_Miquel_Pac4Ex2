@@ -4,14 +4,16 @@ import java.time.LocalDateTime;
 
 public class Elephant extends Herbivore {
 	
-	public Elephant() throws AnimalException {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
+	/**
+	 * Constructor paramètric
+	 * @param name
+	 * @param yearBirth
+	 * @param weight
+	 * @param gender
+	 * @throws AnimalException
+	 */
 	public Elephant(String name, int yearBirth, double weight, Gender gender) throws AnimalException {
 		super(name, yearBirth, weight, gender);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

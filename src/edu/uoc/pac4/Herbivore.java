@@ -8,7 +8,6 @@ public abstract class Herbivore extends Animal {
 	 */
 	public Herbivore() throws AnimalException {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -21,7 +20,6 @@ public abstract class Herbivore extends Animal {
 	 */
 	public Herbivore(String name, int yearBirth, double weight, Gender gender) throws AnimalException {
 		super(name, yearBirth, weight, gender);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**

@@ -7,9 +7,9 @@ public abstract class Animal implements Comparable <Animal> {
 	public static int nextId = 0;
 	private String name = "Foo";
 	private int yearBirth = 2000;
-	private Double weight = 0.1;
+	private double weight = 0.1;
 	private Gender gender;
-	private Double energy = 80.0;
+	private double energy = 80.0;
 
 	/**
 	 * Constructor per defecte d'Animal, amb els següents paràmetres:
@@ -31,7 +31,8 @@ public abstract class Animal implements Comparable <Animal> {
 	 * @param gender
 	 * @throws AnimalException
 	 */
-	public Animal( String name, int yearBirth, Double weight, Gender gender ) throws AnimalException {
+	public Animal( String name, int yearBirth, double weight, Gender gender ) throws AnimalException {
+		setName(name);
 		setYearBirth(yearBirth);
 		setWeight(weight);
 		setGender(gender);
@@ -53,7 +54,7 @@ public abstract class Animal implements Comparable <Animal> {
 	 * Getter de la variable energy
 	 * @return
 	 */
-	public Double getEnergy() {
+	public double getEnergy() {
 		return energy;
 	}
 
@@ -63,7 +64,7 @@ public abstract class Animal implements Comparable <Animal> {
 	 * @throws AnimalException. Llença una excepció MSG_ERR_ENERGY quan la variable energia no està entre 0 i 100.
 	 */
 	// falta posar l'excepció
-	public void addEnergy(Double energy) throws AnimalException {
+	public void addEnergy(double energy) throws AnimalException {
 		if ( energy >= 0.0 && energy <= 100.0 ) {
 			this.energy += energy;			
 		} else if ( energy < 0 ) {
@@ -154,7 +155,7 @@ public abstract class Animal implements Comparable <Animal> {
 	 * Getter de la variable weight.
 	 * @return
 	 */
-	public Double getWeight() {
+	public double getWeight() {
 		return weight;
 	}
 
@@ -163,7 +164,7 @@ public abstract class Animal implements Comparable <Animal> {
 	 * @param weight
 	 * @throws AnimalException
 	 */
-	public void setWeight(Double weight) throws AnimalException {
+	public void setWeight(double weight) throws AnimalException {
 		if ( weight < 0.1 ) {
 			throw new AnimalException (AnimalException.MSG_ERR_WEIGTH);
 		}
@@ -230,9 +231,9 @@ public abstract class Animal implements Comparable <Animal> {
 
 	@Override
 	public int compareTo(Animal auxAnimal) {
-		int aux = Integer.compare(this.yearBirth, auxAnimal.yearBirth);
+		int aux = Integer.compare(auxAnimal.yearBirth, this.yearBirth);
 		if (aux == 0) {
-			aux = Double.compare(this.weight, auxAnimal.weight);
+			aux = Double.compare(auxAnimal.weight, this.weight);
 		}
 		return aux;
 	}

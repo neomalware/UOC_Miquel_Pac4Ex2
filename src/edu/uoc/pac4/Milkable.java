@@ -28,9 +28,9 @@ public interface Milkable {
 	 * @param PEAK_MILK 
 	 * @return
 	 */
-	public default int milk() throws Exception {
+	public default int milk() throws AnimalException {
 		if ( getDaysInMilk() >= MAX_DIM ) {
-			throw new Exception(MSG_ERR_NO_MILK);
+			throw new AnimalException(MSG_ERR_NO_MILK);
 		}
 		// Incrementem una unitat el nombre de dies
 		setDaysInMilk(1);
