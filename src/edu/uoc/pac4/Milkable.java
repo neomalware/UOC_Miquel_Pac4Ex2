@@ -62,7 +62,7 @@ public interface Milkable {
 		// Aplico les restriccions de l'enunciat
 
 		int milkQTY;
-		double maxMilk, minMilk, diffMilk, ratio;
+		double maxMilk, minMilk, diffMilk, ratio, randomMilk;
 
 		maxMilk = getMaxMilkPerDay();
 		
@@ -70,11 +70,18 @@ public interface Milkable {
 			ratio = 0.75;
 			minMilk = maxMilk * ratio;
 			diffMilk = maxMilk - minMilk;
-			milkQTY = (int) (Math.random() * diffMilk + minMilk);
+			randomMilk = Math.random() * diffMilk;
+			milkQTY = (int) (randomMilk + minMilk);
+			
+			if (milkQTY < minMilk) {
+				milkQTY = (int) Math.ceil(randomMilk + minMilk);
+			}
+				
 		} else {
 			ratio = 0.5;
 			minMilk = maxMilk * ratio;
-			milkQTY = (int) (Math.random() * minMilk);
+			randomMilk = (Math.random() * minMilk);
+			milkQTY = (int) randomMilk;
 		}
 
 		return milkQTY;
