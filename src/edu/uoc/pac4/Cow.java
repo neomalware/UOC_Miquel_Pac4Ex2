@@ -8,7 +8,7 @@ public class Cow extends Herbivore implements Milkable {
 	private int maxMilkPerDay = 35;
 	
 	/**
-	 * Constructor paramètric 1 de Cow
+	 * Constructor paramï¿½tric 1 de Cow
 	 * @param name
 	 * @param yearBirth
 	 * @param weight
@@ -20,7 +20,7 @@ public class Cow extends Herbivore implements Milkable {
 	}
 	
 	/**
-	 * Constructor paramètric 2 de Cow
+	 * Constructor paramï¿½tric 2 de Cow
 	 * @param name
 	 * @param yearBirth
 	 * @param weight
@@ -71,7 +71,7 @@ public class Cow extends Herbivore implements Milkable {
 	}
 
 	/**
-	 * Getter del màxim de llet per dia
+	 * Getter del mï¿½xim de llet per dia
 	 */
 	public int getMaxMilkPerDay() {
 		return maxMilkPerDay;
@@ -90,7 +90,7 @@ public class Cow extends Herbivore implements Milkable {
 	}
 
 	/**
-	 * Implementa makenoise mitjançant el següent mètode
+	 * Implementa makenoise mitjanï¿½ant el segï¿½ent mï¿½tode
 	 */
 	@Override
 	public void makeNoise() {
@@ -98,18 +98,18 @@ public class Cow extends Herbivore implements Milkable {
 	}
 	
 	/**
-	 * Sobrecarrego el mètode abstracte d'Animal makeNoise()
+	 * Sobrecarrego el mï¿½tode abstracte d'Animal makeNoise()
 	 */
 	public void makeNoise(int times) {
-		String message = "Muuuuuu!!!";
+		String message = "";
 		for ( int i = 0; i < times ; i++ ) {
-			message += message;
+			message += "Muuuuuu!!!";
 		}
 		System.out.print(message);
 	}
 	
 	/**
-	 * Override del mètode setGender per forçar que el sexe sempre sigui femení
+	 * Override del mï¿½tode setGender per forï¿½ar que el sexe sempre sigui femenï¿½
 	 */
 	@Override
 	public void setGender(Gender gender) {
@@ -117,7 +117,7 @@ public class Cow extends Herbivore implements Milkable {
 	}
 	
 	/**
-	 * Override del mètode toString.
+	 * Override del mï¿½tode toString.
 	 */
 	@Override
 	public String toString() {
@@ -126,7 +126,7 @@ public class Cow extends Herbivore implements Milkable {
 	}
 	
 	/**
-	 * Mètode auxiliar calcYearsAge. Serveix per calcular l'edat, i el farem servir en l'override del mètode toString().
+	 * Mï¿½tode auxiliar calcYearsAge. Serveix per calcular l'edat, i el farem servir en l'override del mï¿½tode toString().
 	 * @return
 	 */
 	private int calcYearsAge() {
