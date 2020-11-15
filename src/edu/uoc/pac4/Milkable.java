@@ -18,12 +18,12 @@ public interface Milkable {
 	public void setMaxMilkPerDay(int maxMilkPerDay);
 	
 	/**
-	 * Mètode milk. Retorna la quantitat de llet munyida i incrementa una unitat el nombre de dies que ha 
-	 * donat llet (dim). Si al moment d’invocar a aquest mètode, el valor de dim és major o igual al màxim 
-	 * de dies que pot donar llet (MAX_DIM), llavors el mètode no ha de fer res i tan sols ha de llançar 
-	 * una excepció de tipus AnimalException amb el missatge que hi ha en l'atribut MSG_ERR_NO_MILK 
-	 * d'AnimalException. En cas contrari, la quantitat de llet que s'obté del munyit depèn del moment en 
-	 * què es faci:
+	 * Mï¿½tode milk. Retorna la quantitat de llet munyida i incrementa una unitat el nombre de dies que ha 
+	 * donat llet (dim). Si al moment dï¿½invocar a aquest mï¿½tode, el valor de dim ï¿½s major o igual al mï¿½xim 
+	 * de dies que pot donar llet (MAX_DIM), llavors el mï¿½tode no ha de fer res i tan sols ha de llanï¿½ar 
+	 * una excepciï¿½ de tipus AnimalException amb el missatge que hi ha en l'atribut MSG_ERR_NO_MILK 
+	 * d'AnimalException. En cas contrari, la quantitat de llet que s'obtï¿½ del munyit depï¿½n del moment en 
+	 * quï¿½ es faci:
 	 * @param dim 
 	 * @param PEAK_MILK 
 	 * @return
@@ -53,30 +53,32 @@ public interface Milkable {
 	
 	
 	public default int milk() throws AnimalException {
-		if ( getDaysInMilk() >= MAX_DIM ) {
+		if (getDaysInMilk() >= MAX_DIM) {
 			throw new AnimalException(MSG_ERR_NO_MILK);
 		}
 		// Incrementem una unitat el nombre de dies
-		setDaysInMilk( getDaysInMilk()+1 );
-		
+		setDaysInMilk(getDaysInMilk() + 1);
+
 		// Aplico les restriccions de l'enunciat
-		
+
 		int milkQTY;
-		double MinPeak, random, ratio;
+		double maxMilk, minMilk, diffMilk, ratio;
+
+		maxMilk = getMaxMilkPerDay();
 		
-		if ( getDaysInMilk() <= getPeakMilk() ) {
+		if (getDaysInMilk() <= getPeakMilk()) {
 			ratio = 0.75;
+			minMilk = maxMilk * ratio;
+			diffMilk = maxMilk - minMilk;
+			milkQTY = (int) (Math.random() * diffMilk + minMilk);
 		} else {
 			ratio = 0.5;
+			minMilk = maxMilk * ratio;
+			milkQTY = (int) (Math.random() * minMilk);
 		}
-		
-		MinPeak = getMaxMilkPerDay() * ratio;
-		random = Math.random() * (getMaxMilkPerDay() - MinPeak);
-		milkQTY = (int) (MinPeak + random);
-		
+
 		return milkQTY;
 	}
-	
 	
 	
 	/**
